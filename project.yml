@@ -24,7 +24,7 @@ targets:
         name: Sign Frameworks
         runOnlyWhenInstalling: true
         runOnlyWhenInstalling: true
-      - script: /usr/local/bin/swiftgen
+      - script: PATH="/opt/homebrew/bin:/usr/local/bin:$PATH" swiftgen
         name: Generate files using SwiftGen
       - path: Scripts/Swiftlint.sh
         name: Swiftlint
@@ -38,6 +38,8 @@ targets:
         MACOSX_DEPLOYMENT_TARGET: 10.13
         VERSIONING_SYSTEM: apple-generic
         CURRENT_PROJECT_VERSION: 30
+        ONLY_ACTIVE_ARCH: NO
+        CODE_SIGN_IDENTITY: "-"
     dependencies:
       - carthage: LaunchAtLogin
       - carthage: Defaults
